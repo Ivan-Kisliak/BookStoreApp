@@ -8,6 +8,8 @@
 import UIKit
 
 class CollectionViewController: UIViewController {
+    var bookTypeManager: IBookTypeManager?
+    
     private let reuseIdentifier = "reuseIdentifier"
     private var collectionView: UICollectionView!
 
@@ -25,6 +27,7 @@ private extension CollectionViewController {
         view.backgroundColor = .black
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.register(CustomBookCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.dataSource = self
         collectionView.backgroundColor = .black
         view.addSubview(collectionView)
@@ -83,19 +86,22 @@ private extension CollectionViewController {
 //MARK: - UICollectionViewDataSource
 extension CollectionViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        2
+        bookTypeManager?.getBookTypes().count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        4
+        bookTypeManager?.getBookTypes()[section].books.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        cell.backgroundColor = .systemGray
-        cell.layer.cornerRadius = 10
-        return cell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CustomBookCell
+        else {
+                return UICollectionViewCell()
+            }
+        
+        if let book = bookTypeManager?.getBookTypes()[indexPath.section].books[indexPath.item] {
+            cell.configure(with: book.image)
+        }
+            return cell
     }
-    
-    
 }
