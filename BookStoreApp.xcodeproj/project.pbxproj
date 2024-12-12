@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C78DF332D0B03BD00666DCB /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C78DF322D0B03BD00666DCB /* CollectionViewController.swift */; };
 		2CD6FC532D0AFA4E003FF040 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6FC522D0AFA4E003FF040 /* AppDelegate.swift */; };
 		2CD6FC552D0AFA4E003FF040 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6FC542D0AFA4E003FF040 /* SceneDelegate.swift */; };
-		2CD6FC572D0AFA4E003FF040 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6FC562D0AFA4E003FF040 /* ViewController.swift */; };
 		2CD6FC5C2D0AFA4F003FF040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CD6FC5B2D0AFA4F003FF040 /* Assets.xcassets */; };
 		2CD6FC5F2D0AFA4F003FF040 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 2CD6FC5E2D0AFA4F003FF040 /* Base */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C78DF322D0B03BD00666DCB /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		2CD6FC4F2D0AFA4E003FF040 /* BookStoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookStoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD6FC522D0AFA4E003FF040 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CD6FC542D0AFA4E003FF040 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2CD6FC562D0AFA4E003FF040 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2CD6FC5B2D0AFA4F003FF040 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CD6FC5E2D0AFA4F003FF040 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CD6FC602D0AFA4F003FF040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,6 +35,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C78DF2D2D0AFEEF00666DCB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2C78DF322D0B03BD00666DCB /* CollectionViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2C78DF2E2D0AFF0600666DCB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2CD6FC5B2D0AFA4F003FF040 /* Assets.xcassets */,
+				2CD6FC5D2D0AFA4F003FF040 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2C78DF2F2D0AFF3D00666DCB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2C78DF302D0AFF6700666DCB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2C78DF312D0B000D00666DCB /* SupplementaryItems */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SupplementaryItems;
+			sourceTree = "<group>";
+		};
 		2CD6FC462D0AFA4E003FF040 = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +94,11 @@
 			children = (
 				2CD6FC522D0AFA4E003FF040 /* AppDelegate.swift */,
 				2CD6FC542D0AFA4E003FF040 /* SceneDelegate.swift */,
-				2CD6FC562D0AFA4E003FF040 /* ViewController.swift */,
-				2CD6FC5B2D0AFA4F003FF040 /* Assets.xcassets */,
-				2CD6FC5D2D0AFA4F003FF040 /* LaunchScreen.storyboard */,
+				2C78DF2D2D0AFEEF00666DCB /* ViewControllers */,
+				2C78DF312D0B000D00666DCB /* SupplementaryItems */,
+				2C78DF2F2D0AFF3D00666DCB /* Models */,
+				2C78DF302D0AFF6700666DCB /* Services */,
+				2C78DF2E2D0AFF0600666DCB /* Resources */,
 				2CD6FC602D0AFA4F003FF040 /* Info.plist */,
 			);
 			path = BookStoreApp;
@@ -134,7 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CD6FC572D0AFA4E003FF040 /* ViewController.swift in Sources */,
+				2C78DF332D0B03BD00666DCB /* CollectionViewController.swift in Sources */,
 				2CD6FC532D0AFA4E003FF040 /* AppDelegate.swift in Sources */,
 				2CD6FC552D0AFA4E003FF040 /* SceneDelegate.swift in Sources */,
 			);
