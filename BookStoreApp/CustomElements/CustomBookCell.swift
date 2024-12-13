@@ -9,6 +9,7 @@ import UIKit
 
 class CustomBookCell: UICollectionViewCell {
     private let imageView = UIImageView()
+    private let titleLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,8 +21,10 @@ class CustomBookCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    func configure(with imageName: String) {
+    
+    func configure(imageName: String, text: String) {
         imageView.image = UIImage(named: imageName)
+        titleLabel.text = text
     }
 }
 
@@ -29,26 +32,42 @@ class CustomBookCell: UICollectionViewCell {
 private extension CustomBookCell {
     func setupView() {
         setupImageView()
-        contentView.addSubview(imageView)
+        setupTitleLabel()
+
+        [imageView,
+         titleLabel].forEach { contentView.addSubview($0)}
     }
+    
     func setupImageView() {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func setupTitleLabel() {
+        titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        titleLabel.textColor = .white
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.minimumScaleFactor = 0.7
     }
 }
 
 //MARK: - Setup Layout
 private extension CustomBookCell {
     func setupLayout() {
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        [imageView,
+         titleLabel].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            imageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.8),
+            
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 15),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
 }

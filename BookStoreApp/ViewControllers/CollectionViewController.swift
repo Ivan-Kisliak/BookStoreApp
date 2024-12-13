@@ -25,9 +25,17 @@ class CollectionViewController: UIViewController {
 private extension CollectionViewController {
     func setupView() {
         view.backgroundColor = .black
+        
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.register(CustomBookCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.register(
+            SectionHeaderView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: SectionHeaderView.reuseIdentifier
+        )
+        
         collectionView.dataSource = self
         collectionView.backgroundColor = .black
         view.addSubview(collectionView)
@@ -48,12 +56,12 @@ private extension CollectionViewController {
             top: 5,
             leading: 5,
             bottom: 5,
-            trailing: 5
+            trailing: 10
         )
         
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(1/5)
+            heightDimension: .fractionalHeight(1/4)
         )
         
         let group = NSCollectionLayoutGroup.horizontal(
@@ -61,12 +69,27 @@ private extension CollectionViewController {
             subitems: [item]
         )
         
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(50)
+        )
+        
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        
+        
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
-        section.contentInsets = NSDirectionalEdgeInsets(top: 50,
-                                                        leading: 5,
-                                                        bottom: 5,
-                                                        trailing: 5)
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 10,
+            leading: 5,
+            bottom: 5,
+            trailing: 5
+        )
+        section.boundarySupplementaryItems = [header]
         
         return UICollectionViewCompositionalLayout(section: section)
     }
@@ -93,15 +116,39 @@ extension CollectionViewController: UICollectionViewDataSource {
         bookTypeManager?.getBookTypes()[section].books.count ?? 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CustomBookCell
         else {
                 return UICollectionViewCell()
             }
         
-        if let book = bookTypeManager?.getBookTypes()[indexPath.section].books[indexPath.item] {
-            cell.configure(with: book.image)
+        let bookTypes = bookTypeManager?.getBookTypes()
+        
+        if let book = bookTypes?[indexPath.section].books[indexPath.item] {
+            cell.configure(imageName: book.image, text: book.title)
         }
             return cell
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        if let header = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind,
+            withReuseIdentifier: SectionHeaderView.reuseIdentifier,
+            for: indexPath
+        ) as? SectionHeaderView {
+            let bookTypes = bookTypeManager?.getBookTypes()
+            if let sectionType = bookTypes?[indexPath.section] {
+                header.configure(text: sectionType.type)
+            }
+            return header
+        }
+        return UICollectionReusableView()
     }
 }
