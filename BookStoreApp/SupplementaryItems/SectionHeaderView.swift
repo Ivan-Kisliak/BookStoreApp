@@ -8,7 +8,6 @@
 import UIKit
 
 class SectionHeaderView: UICollectionReusableView {
-    static let reuseIdentifier = "SectionHeaderView"
     private let label = UILabel()
     
     override init(frame: CGRect) {
@@ -27,7 +26,7 @@ class SectionHeaderView: UICollectionReusableView {
 
 }
 
-//MARK: - Setup View
+//MARK: - Setting View
 private extension SectionHeaderView {
     func setupView() {
         addSubview(label)
