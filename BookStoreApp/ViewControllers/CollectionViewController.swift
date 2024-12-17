@@ -9,8 +9,7 @@ import UIKit
 
 class CollectionViewController: UIViewController {
     var bookTypeManager: IBookTypeManager?
-    
-    private let reuseIdentifier = "reuseIdentifier"
+
     private var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -27,8 +26,8 @@ private extension CollectionViewController {
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         
-        registerCell([UICollectionViewCell.self,
-                       CustomBookCell.self])
+        registerCell(UICollectionViewCell.self,
+                     CustomBookCell.self)
         
         collectionView.register(
             SectionHeaderView.self,
@@ -46,13 +45,6 @@ private extension CollectionViewController {
         collectionView.dataSource = self
         view.addSubview(collectionView)
     }
-    
-    func registerCell(_ cellClasses: [AnyClass?]) {
-        cellClasses.forEach {
-            collectionView.register($0, forCellWithReuseIdentifier: reuseIdentifier)
-        }
-    }
-
 }
 
 //MARK: - Setting Layout
@@ -118,7 +110,7 @@ private extension CollectionViewController {
         func createGroup(item: NSCollectionLayoutItem) -> NSCollectionLayoutGroup {
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(1 / 5)
+                heightDimension: .fractionalHeight(1/5)
             )
             
             return NSCollectionLayoutGroup.horizontal(
@@ -152,6 +144,15 @@ private extension CollectionViewController {
     }
 }
 
+//MARK: - Private logic methods
+private extension CollectionViewController {
+    func registerCell(_ cellClasses: UICollectionViewCell.Type...) {
+        cellClasses.forEach {
+            collectionView.register($0, forCellWithReuseIdentifier: $0.identifier)
+        }
+    }
+}
+
 //MARK: - UICollectionViewDataSource
 extension CollectionViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -166,7 +167,10 @@ extension CollectionViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CustomBookCell
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: CustomBookCell.identifier,
+            for: indexPath
+        ) as? CustomBookCell
         else {
             return UICollectionViewCell()
         }
@@ -193,7 +197,7 @@ extension CollectionViewController: UICollectionViewDataSource {
             ) as? SectionHeaderView {
                 let bookTypes = bookTypeManager?.getBookTypes()
                 if let sectionType = bookTypes?[indexPath.section].type {
-                    header.configure(text: sectionType)
+                    header.configure(text: sectionType, textColor: .white)
                 }
                 return header
             }

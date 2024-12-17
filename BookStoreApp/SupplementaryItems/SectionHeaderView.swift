@@ -20,8 +20,9 @@ class SectionHeaderView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(text: String) {
+    func configure(text: String, textColor: UIColor) {
         label.text = text
+        label.textColor = textColor
     }
 
 }
@@ -35,8 +36,7 @@ private extension SectionHeaderView {
     
     func setupLabel() {
         label.frame = bounds
-        label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.textAlignment = .left
     }
 }

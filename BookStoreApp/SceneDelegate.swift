@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum Scene {
+    case collection
+    case multipleSection
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -15,21 +20,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let collectionViewController = CollectionViewController()
-        collectionViewController.bookTypeManager = buildTypeManager() 
-        
-        let rootViewController = collectionViewController
-        
+        let rootViewController = assembly(scene: .multipleSection)
+
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
     }
 
 }
 
-extension SceneDelegate {
+private extension SceneDelegate {
     func buildTypeManager() -> IBookTypeManager {
         let bookTypeManger = BookTypeManager()
         return bookTypeManger
     }
 }
+
+private extension SceneDelegate {
+    func assembly(scene: Scene) -> UIViewController {
+        switch scene {
+        case .collection:
+            let collectionViewController = CollectionViewController()
+            collectionViewController.bookTypeManager = buildTypeManager()
+            return collectionViewController
+        case .multipleSection:
+            return MultipleSectionViewController()
+        }
+    }
+}
+
+
 

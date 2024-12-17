@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C10559D2D105C9A0072DFEA /* MultipleSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10559C2D105C9A0072DFEA /* MultipleSectionViewController.swift */; };
 		2C1243552D0B518A0016907E /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1243542D0B518A0016907E /* Book.swift */; };
 		2C1243572D0B519D0016907E /* BookType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1243562D0B519D0016907E /* BookType.swift */; };
 		2C1243592D0B51DE0016907E /* BookTypeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1243582D0B51DE0016907E /* BookTypeManager.swift */; };
 		2C12435C2D0B59620016907E /* CustomBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12435B2D0B59620016907E /* CustomBookCell.swift */; };
+		2C2E65DD2D118D1400AED49A /* UIViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2E65DC2D118D1400AED49A /* UIViewController + Extensions.swift */; };
+		2C2E65DF2D11905D00AED49A /* UICollectionViewCell + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2E65DE2D11905D00AED49A /* UICollectionViewCell + Extensions.swift */; };
 		2C326C6F2D0C5D24002F36BC /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C326C6E2D0C5D24002F36BC /* SectionHeaderView.swift */; };
 		2C3288102D0D8361000E24C1 /* ElementKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C32880F2D0D8361000E24C1 /* ElementKind.swift */; };
 		2C3288122D0D84CC000E24C1 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3288112D0D84CC000E24C1 /* BadgeView.swift */; };
@@ -23,10 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C10559C2D105C9A0072DFEA /* MultipleSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSectionViewController.swift; sourceTree = "<group>"; };
 		2C1243542D0B518A0016907E /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		2C1243562D0B519D0016907E /* BookType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookType.swift; sourceTree = "<group>"; };
 		2C1243582D0B51DE0016907E /* BookTypeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTypeManager.swift; sourceTree = "<group>"; };
 		2C12435B2D0B59620016907E /* CustomBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBookCell.swift; sourceTree = "<group>"; };
+		2C2E65DC2D118D1400AED49A /* UIViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extensions.swift"; sourceTree = "<group>"; };
+		2C2E65DE2D11905D00AED49A /* UICollectionViewCell + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell + Extensions.swift"; sourceTree = "<group>"; };
 		2C326C6E2D0C5D24002F36BC /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		2C32880F2D0D8361000E24C1 /* ElementKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementKind.swift; sourceTree = "<group>"; };
 		2C3288112D0D84CC000E24C1 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
@@ -71,6 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				2C6AE7152D0DD92600C2EB44 /* UICollectionReusableView+Extensions.swift */,
+				2C2E65DC2D118D1400AED49A /* UIViewController + Extensions.swift */,
+				2C2E65DE2D11905D00AED49A /* UICollectionViewCell + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -79,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				2C78DF322D0B03BD00666DCB /* CollectionViewController.swift */,
+				2C10559C2D105C9A0072DFEA /* MultipleSectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -228,6 +237,9 @@
 				2C326C6F2D0C5D24002F36BC /* SectionHeaderView.swift in Sources */,
 				2C12435C2D0B59620016907E /* CustomBookCell.swift in Sources */,
 				2CD6FC532D0AFA4E003FF040 /* AppDelegate.swift in Sources */,
+				2C2E65DD2D118D1400AED49A /* UIViewController + Extensions.swift in Sources */,
+				2C10559D2D105C9A0072DFEA /* MultipleSectionViewController.swift in Sources */,
+				2C2E65DF2D11905D00AED49A /* UICollectionViewCell + Extensions.swift in Sources */,
 				2C6AE7162D0DD92600C2EB44 /* UICollectionReusableView+Extensions.swift in Sources */,
 				2C3288122D0D84CC000E24C1 /* BadgeView.swift in Sources */,
 				2C1243572D0B519D0016907E /* BookType.swift in Sources */,
