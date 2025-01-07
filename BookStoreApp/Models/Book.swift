@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Book {
+struct Book: Hashable {
     let image: String
     let title: String
     var isNew = false
