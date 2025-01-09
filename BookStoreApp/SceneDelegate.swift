@@ -13,19 +13,21 @@ enum Scene {
 }
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let rootViewController = assembly(scene: .collection)
-
+        let rootViewController = UINavigationController(
+            rootViewController: assembly(scene: .collection)
+        )
+        
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
     }
-
+    
 }
 
 private extension SceneDelegate {

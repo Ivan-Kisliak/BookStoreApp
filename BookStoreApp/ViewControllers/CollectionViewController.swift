@@ -20,6 +20,11 @@ class CollectionViewController: UIViewController {
         configureDataSource()
         applyInitialData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
 }
 
 // MARK: - Setting View
@@ -44,8 +49,33 @@ private extension CollectionViewController {
             withReuseIdentifier: BadgeView.reuseIdentifier
         )
         
+        collectionView.delegate = self
+        
         collectionView.backgroundColor = .black
+        setupNavigationBar()
         view.addSubview(collectionView)
+    }
+    
+    func setupNavigationBar() {
+        navigationItem.title = "Книги для души"
+
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        
+        appearance.backgroundColor = .black
+        
+        appearance.titleTextAttributes = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+        ]
+        
+        appearance.largeTitleTextAttributes = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont.systemFont(ofSize: 30, weight: .bold)
+        ]
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
 }
 
@@ -61,7 +91,7 @@ private extension CollectionViewController {
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 30,
             leading: 5,
-            bottom: 50,
+            bottom: 30,
             trailing: 5
         )
         section.boundarySupplementaryItems = [header]
@@ -112,7 +142,7 @@ private extension CollectionViewController {
     func createGroup(item: NSCollectionLayoutItem) -> NSCollectionLayoutGroup {
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(1/5)
+            heightDimension: .fractionalHeight(1/3)
         )
         
         return NSCollectionLayoutGroup.horizontal(
@@ -205,6 +235,18 @@ private extension CollectionViewController {
         bookTypes.forEach { snapshot.appendItems($0.books, toSection: $0) }
         
         diffableDataSource.apply(snapshot, animatingDifferences: false)
+    }
+}
+
+//MARK: - UICollectionViewDelegate
+extension CollectionViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let section = diffableDataSource.snapshot().sectionIdentifiers[indexPath.section]
+        let book = section.books[indexPath.item]
+        
+        let detailVC = DetailViewController()
+        detailVC.book = book
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 

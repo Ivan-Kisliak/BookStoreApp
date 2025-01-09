@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0FBE6E2D2EFD99008F7E8B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0FBE6D2D2EFD99008F7E8B /* DetailViewController.swift */; };
 		2C10559D2D105C9A0072DFEA /* MultipleSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10559C2D105C9A0072DFEA /* MultipleSectionViewController.swift */; };
 		2C1243552D0B518A0016907E /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1243542D0B518A0016907E /* Book.swift */; };
 		2C1243572D0B519D0016907E /* BookType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1243562D0B519D0016907E /* BookType.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C0FBE6D2D2EFD99008F7E8B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2C10559C2D105C9A0072DFEA /* MultipleSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSectionViewController.swift; sourceTree = "<group>"; };
 		2C1243542D0B518A0016907E /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		2C1243562D0B519D0016907E /* BookType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookType.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				2C78DF322D0B03BD00666DCB /* CollectionViewController.swift */,
+				2C0FBE6D2D2EFD99008F7E8B /* DetailViewController.swift */,
 				2C10559C2D105C9A0072DFEA /* MultipleSectionViewController.swift */,
 			);
 			path = ViewControllers;
@@ -243,6 +246,7 @@
 				2C6AE7162D0DD92600C2EB44 /* UICollectionReusableView+Extensions.swift in Sources */,
 				2C3288122D0D84CC000E24C1 /* BadgeView.swift in Sources */,
 				2C1243572D0B519D0016907E /* BookType.swift in Sources */,
+				2C0FBE6E2D2EFD99008F7E8B /* DetailViewController.swift in Sources */,
 				2C3288102D0D8361000E24C1 /* ElementKind.swift in Sources */,
 				2CD6FC552D0AFA4E003FF040 /* SceneDelegate.swift in Sources */,
 			);

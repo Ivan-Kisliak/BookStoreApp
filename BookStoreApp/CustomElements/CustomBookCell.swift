@@ -55,7 +55,6 @@ private extension CustomBookCell {
 //MARK: - Setup Layout
 private extension CustomBookCell {
     func setupLayout() {
-        
         [imageView,
          titleLabel].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
