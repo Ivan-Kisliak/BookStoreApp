@@ -17,6 +17,7 @@ class MultipleSectionViewController: UIViewController {
     }
 }
 
+//MARK: - Settings View
 private extension MultipleSectionViewController {
     func setupView() {
         let layout = createLayout()
@@ -37,7 +38,25 @@ private extension MultipleSectionViewController {
         collectionView.backgroundColor = .white
         collectionView.dataSource = self
         
+        setupNavigationBar()
         view.addSubview(collectionView)
+    }
+    
+    func setupNavigationBar() {
+        navigationItem.title = "Поиск"
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        
+        appearance.backgroundColor = .black
+        
+        appearance.titleTextAttributes = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+        ]
+        
+        navigationController?.navigationBar.standardAppearance = appearance
     }
 }
 
@@ -134,6 +153,7 @@ private extension MultipleSectionViewController {
     }
     
     func configureCollectionView() {
+        collectionView.backgroundColor = .black
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([

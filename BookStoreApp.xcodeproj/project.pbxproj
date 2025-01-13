@@ -20,6 +20,7 @@
 		2C3288122D0D84CC000E24C1 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3288112D0D84CC000E24C1 /* BadgeView.swift */; };
 		2C6AE7162D0DD92600C2EB44 /* UICollectionReusableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AE7152D0DD92600C2EB44 /* UICollectionReusableView+Extensions.swift */; };
 		2C78DF332D0B03BD00666DCB /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C78DF322D0B03BD00666DCB /* CollectionViewController.swift */; };
+		2C80370A2D341CB50093EF4C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8037092D341CB50093EF4C /* TabBarController.swift */; };
 		2CD6FC532D0AFA4E003FF040 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6FC522D0AFA4E003FF040 /* AppDelegate.swift */; };
 		2CD6FC552D0AFA4E003FF040 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6FC542D0AFA4E003FF040 /* SceneDelegate.swift */; };
 		2CD6FC5C2D0AFA4F003FF040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CD6FC5B2D0AFA4F003FF040 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		2C3288112D0D84CC000E24C1 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		2C6AE7152D0DD92600C2EB44 /* UICollectionReusableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionReusableView+Extensions.swift"; sourceTree = "<group>"; };
 		2C78DF322D0B03BD00666DCB /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		2C8037092D341CB50093EF4C /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		2CD6FC4F2D0AFA4E003FF040 /* BookStoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookStoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD6FC522D0AFA4E003FF040 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CD6FC542D0AFA4E003FF040 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				2C78DF322D0B03BD00666DCB /* CollectionViewController.swift */,
 				2C0FBE6D2D2EFD99008F7E8B /* DetailViewController.swift */,
 				2C10559C2D105C9A0072DFEA /* MultipleSectionViewController.swift */,
+				2C8037092D341CB50093EF4C /* TabBarController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C1243592D0B51DE0016907E /* BookTypeManager.swift in Sources */,
+				2C80370A2D341CB50093EF4C /* TabBarController.swift in Sources */,
 				2C1243552D0B518A0016907E /* Book.swift in Sources */,
 				2C78DF332D0B03BD00666DCB /* CollectionViewController.swift in Sources */,
 				2C326C6F2D0C5D24002F36BC /* SectionHeaderView.swift in Sources */,

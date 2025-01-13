@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         let rootViewController = UINavigationController(
-            rootViewController: assembly(scene: .collection)
+            rootViewController: TabBarController()
         )
         
         window?.rootViewController = rootViewController
