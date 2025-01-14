@@ -7,11 +7,6 @@
 
 import UIKit
 
-enum Scene {
-    case collection
-    case multipleSection
-}
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
@@ -20,11 +15,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let rootViewController = UINavigationController(
-            rootViewController: TabBarController()
-        )
+        let dataSource: [TabBarItem] = [.home(buildTypeManager()), .search]
         
-        window?.rootViewController = rootViewController
+        let tabBarController = TabBarController(dataSource: dataSource)
+        
+        window?.rootViewController = UINavigationController(rootViewController: tabBarController)
         window?.makeKeyAndVisible()
     }
     
@@ -37,18 +32,6 @@ private extension SceneDelegate {
     }
 }
 
-private extension SceneDelegate {
-    func assembly(scene: Scene) -> UIViewController {
-        switch scene {
-        case .collection:
-            let collectionViewController = CollectionViewController()
-            collectionViewController.bookTypeManager = buildTypeManager()
-            return collectionViewController
-        case .multipleSection:
-            return MultipleSectionViewController()
-        }
-    }
-}
 
 
 

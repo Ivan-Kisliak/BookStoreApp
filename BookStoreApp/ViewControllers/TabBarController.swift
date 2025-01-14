@@ -8,7 +8,7 @@
 import UIKit
 
 enum TabBarItem {
-    case home
+    case home(IBookTypeManager)
     case search
     
     var title: String {
@@ -27,7 +27,17 @@ enum TabBarItem {
 }
 
 class TabBarController: UITabBarController {
-    private let dataSource: [TabBarItem] = [.home, .search]
+    private var dataSource: [TabBarItem] = []
+    
+    init(dataSource: [TabBarItem]) {
+        self.dataSource = dataSource
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,19 +51,14 @@ private extension TabBarController {
     func buildTabBarComponents() {
         viewControllers = dataSource.map {
             switch $0 {
-            case .home:
+            case .home(let bookTypeManager):
                 let collectionViewController = CollectionViewController()
-                collectionViewController.bookTypeManager = buildTypeManager()
+                collectionViewController.bookTypeManager = bookTypeManager
                 return UINavigationController(rootViewController: collectionViewController)
             case .search:
                 return UINavigationController(rootViewController: MultipleSectionViewController())
             }
         }
-    }
-    
-    func buildTypeManager() -> IBookTypeManager {
-        let bookTypeManger = BookTypeManager()
-        return bookTypeManger
     }
     
     func setupTabBar() {
