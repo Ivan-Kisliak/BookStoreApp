@@ -8,7 +8,7 @@
 import UIKit
 
 enum TabBarItem {
-    case home(IBookTypeManager)
+    case home
     case search
     
     var title: String {
@@ -24,43 +24,21 @@ enum TabBarItem {
         case .search: return UIImage(systemName: "magnifyingglass")
         }
     }
+    
+    static let allTabBarItems: [TabBarItem] = [.home, .search]
 }
 
-class TabBarController: UITabBarController {
+final class TabBarController: UITabBarController {
     private var dataSource: [TabBarItem] = []
-    
-    init(dataSource: [TabBarItem]) {
-        self.dataSource = dataSource
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        buildTabBarComponents()
         setupTabBar()
     }
 }
 
 //MARK: - Settings View
 private extension TabBarController {
-    func buildTabBarComponents() {
-        viewControllers = dataSource.map {
-            switch $0 {
-            case .home(let bookTypeManager):
-                let collectionViewController = CollectionViewController()
-                collectionViewController.bookTypeManager = bookTypeManager
-                return UINavigationController(rootViewController: collectionViewController)
-            case .search:
-                return UINavigationController(rootViewController: MultipleSectionViewController())
-            }
-        }
-    }
-    
     func setupTabBar() {
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -79,9 +57,15 @@ private extension TabBarController {
         tabBar.standardAppearance = appearance
         tabBar.scrollEdgeAppearance = appearance
         
-        viewControllers?.enumerated().forEach { index, viewController in
-            viewController.tabBarItem.title = dataSource[index].title
-            viewController.tabBarItem.image = dataSource[index].icon
+        let controllers: [UINavigationController] = TabBarItem.allTabBarItems.map { item in
+            let navControllers = UINavigationController()
+            
+            navControllers.tabBarItem.title = item.title
+            navControllers.tabBarItem.image = item.icon
+            
+            return navControllers
         }
+        
+        setViewControllers(controllers, animated: true)
     }
 }

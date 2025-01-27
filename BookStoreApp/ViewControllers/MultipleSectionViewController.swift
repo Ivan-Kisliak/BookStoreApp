@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MultipleSectionViewController: UIViewController {
+final class MultipleSectionViewController: UIViewController {
     private var collectionView: UICollectionView!
     
     override func viewDidLoad() {
